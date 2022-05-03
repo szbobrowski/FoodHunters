@@ -14,14 +14,15 @@ public class ThirdPersonMovement : MonoBehaviour
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
 
-    public static int numberOfCollectItems;
+    public static int numberOfCollectItems = 0;
     public TextMeshProUGUI scoreText;
 
     //BOUND
-    /*private void Start()
-    {
-        transform.position = cam.transform.position;
-    }*/
+    // private void Start()
+    // {
+    //     //transform.position = cam.transform.position;
+    //     numberOfCollectItems=0;
+    // }
 
     // Update is called once per frame
     void Update()
@@ -48,4 +49,22 @@ public class ThirdPersonMovement : MonoBehaviour
 
         scoreText.text = "Score: " + numberOfCollectItems.ToString();
     }
+
+    private void OnCollisionEnter(Collision collision)
+	{
+		if (collision.gameObject.tag == "Enemy")
+		{
+            die();
+		}
+	}
+
+    private void die(){
+        FindObjectOfType<GameManager>().EndGame();
+        // Destroy(gameObject);
+    }
+
+    public static void Clear(){
+        numberOfCollectItems = 0;
+    }
+
 }
