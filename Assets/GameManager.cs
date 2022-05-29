@@ -31,18 +31,18 @@ public class GameManager : MonoBehaviour
       if (!isGameEnded)
       {
           Debug.Log("Collect items: " + ThirdPersonMovement.numberOfCollectItems.ToString());
-          score.text = ThirdPersonMovement.numberOfCollectItems.ToString();
+          //score.text = ThirdPersonMovement.numberOfCollectItems.ToString();
           Debug.Log("Number of enemies shot: " + BulletController.counterShootEnemy.ToString());
-          enemy.text = BulletController.counterShootEnemy.ToString();
+         // enemy.text = BulletController.counterShootEnemy.ToString();
           isGameEnded = true;
           endGameUtcDate = DateTime.UtcNow;
           Debug.Log("Game over: " + endGameUtcDate);
           var diffDate = (endGameUtcDate - startGameUtcDate);
           Debug.Log("Game last: " + diffDate.Minutes + ":" + diffDate.Seconds + ":" + diffDate.Milliseconds);
-          time.text = "diffDate.Minutes" + ":" + diffDate.Seconds + ":" + diffDate.Milliseconds;
+        //  time.text = "diffDate.Minutes" + ":" + diffDate.Seconds + ":" + diffDate.Milliseconds;
           gameOver.text = "Game Over";
-          SceneManager.LoadScene("GameOverMenu");
-          //Restart();
+        //  SceneManager.LoadScene("GameOverMenu");
+          Restart();
       }
       
   }
