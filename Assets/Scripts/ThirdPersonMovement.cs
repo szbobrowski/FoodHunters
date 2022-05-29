@@ -58,13 +58,14 @@ public class ThirdPersonMovement : MonoBehaviour
 		}
 	}
 
-    private void die(){
+    private void die()
+    {
         FindObjectOfType<GameManager>().EndGame();
         // Destroy(gameObject);
     }
 
-    public static void Clear(){
+    public static void Clear()
+    {
         numberOfCollectItems = 0;
     }
-
 }
