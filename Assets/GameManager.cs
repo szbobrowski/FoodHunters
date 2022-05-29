@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 {
     private bool isGameEnded = false;
     //public float restartDelay = 1f;
-    public int levelGame = 0;
+    public static int levelGame = 0;
 
     public enum Level {
         Easy,
@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
       {
         return Level.Hard;
       }
+      return Level.Easy;
   }
 
 
