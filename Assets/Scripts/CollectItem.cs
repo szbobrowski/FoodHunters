@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CollectItem : MonoBehaviour
 {
-    public GameObject myObjects;
+    public GameObject[] myObjects;
 
     void Update()
     {
@@ -14,9 +14,14 @@ public class CollectItem : MonoBehaviour
     private void generateObject ()
     {
         Debug.Log("Create object");
-        //int randomIndexObject = Random.Range(0,gameObject.length);
+        //int randomIndexObject = Random.Range(0,myObjects.Length);
+        int randomIndexObject = Random.Range(0, 4);
         Vector3 randomSpawnPosition = new Vector3(Random.Range(-20,20),45,Random.Range(80,120));
-        Instantiate(gameObject,randomSpawnPosition,Quaternion.identity);
+        //Instantiate(gameObject,randomSpawnPosition,Quaternion.identity);
+        //var tempObj = myObjects[randomIndexObject];
+        //tempObj.AddComponent<BoxCollider>();
+        Instantiate(myObjects[randomIndexObject], randomSpawnPosition, Quaternion.identity);
+        //Instantiate(tempObj, randomSpawnPosition, Quaternion.identity);
     }
 
     private void OnTriggerEnter (Collider collider)
