@@ -8,6 +8,15 @@ public class GameManager : MonoBehaviour
     private bool isGameEnded = false;
     public float restartDelay = 1f;
 
+    public enum Level {
+        Easy,
+        Medium,
+        Hard
+    }
+
+    static Level level = Level.Medium;
+
+
     public TextMeshProUGUI gameOver;
   public void EndGame()
   {
@@ -26,5 +35,8 @@ public class GameManager : MonoBehaviour
       SceneManager.LoadScene(SceneManager.GetActiveScene().name);
       ThirdPersonMovement.Clear();
       Enemy.Clear();
+  }
+  public static Level GetLevel(){
+      return level;
   }
 }
