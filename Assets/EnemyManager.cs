@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     public bool useSpawnPoints = true;
-    public int numberOfEnemies;
+    private int numberOfEnemies;
     public Transform[] spawnPoints;
     public GameObject enemyPrefab;
 
@@ -19,6 +19,7 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SetupParameters();
         
         numberOfSpawnPoints = spawnPoints.Length;
         for(int i=0; i < numberOfEnemies; i++)
@@ -31,6 +32,27 @@ public class EnemyManager : MonoBehaviour
     void OnEnable()
     {
         Enemy.OnEnemyKilled += SpawnNewEnemy;
+    }
+
+    private void SetupParameters()
+    {
+        switch(GameManager.GetLevel()){
+            case GameManager.Level.Easy:
+            {
+                numberOfEnemies = 2;
+            }
+            break;
+            case GameManager.Level.Medium: 
+            {
+                numberOfEnemies = 4;
+            }
+            break;
+            case GameManager.Level.Hard: 
+            {
+                numberOfEnemies = 5;
+            }
+            break;
+        }
     }
 
 

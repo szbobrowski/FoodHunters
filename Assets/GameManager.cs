@@ -13,6 +13,12 @@ public class GameManager : MonoBehaviour
     //public float restartDelay = 1f;
     public int levelGame = 0;
 
+    public enum Level {
+        Easy,
+        Medium,
+        Hard
+    }
+
     public TextMeshProUGUI score;
     public TextMeshProUGUI enemy;
     public TextMeshProUGUI time;
@@ -47,6 +53,20 @@ public class GameManager : MonoBehaviour
       ThirdPersonMovement.Clear();
       Enemy.Clear();
   }
+
+  public static Level GetLevel(){
+      if (levelGame == 0)
+      {
+        return Level.Easy;
+      } else if(levelGame == 1) 
+      {
+        return Level.Medium;
+      } else if(levelGame == 2)
+      {
+        return Level.Hard;
+      }
+  }
+
 
   public void ExitButton() 
   {
