@@ -10,12 +10,14 @@ public class ThirdPersonMovement : MonoBehaviour
     public Transform cam;
 
     public float speed = 6f;
+    public int playerHP = 4;
 
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
 
     public static int numberOfCollectItems = 0;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI playerHP_text;
 
     //BOUND
     // private void Start()
@@ -48,14 +50,20 @@ public class ThirdPersonMovement : MonoBehaviour
         }
 
         scoreText.text = "Score: " + numberOfCollectItems.ToString();
+        playerHP_text.text = "Player HP: " + playerHP;
     }
 
     private void OnCollisionEnter(Collision collision)
 	{
 		if (collision.gameObject.tag == "Enemy")
 		{
-            die();
+            playerHP -= 1;
 		}
+
+        if (playerHP <= 0) 
+        {
+            die();
+        }
 	}
 
     private void die()
