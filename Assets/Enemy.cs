@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Enemy : MonoBehaviour {
 
@@ -12,7 +14,9 @@ public class Enemy : MonoBehaviour {
     public float speed;
 	private int hp;
 	private float multiplayerDivider;
-    
+
+	GameObject text;
+	TextMesh t;
 
     enum State {
 	    Alive,
@@ -26,6 +30,9 @@ public class Enemy : MonoBehaviour {
 		SetupParameters();
 	    player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody>();
+
+		text = new GameObject();
+		t = text.AddComponent<TextMesh>();
 	}
 	
 	void Update ()
@@ -56,7 +63,12 @@ public class Enemy : MonoBehaviour {
 		}
 		
 		LookAtPlayer();
-		
+		UpdateText();
+	}
+
+	public void UpdateText() {
+		t.text = "HP: " + hp;
+		t.transform.localPosition = transform.position + new Vector3(0, 5f, 0);
 	}
 
 	private void OnCollisionEnter(Collision collision)
@@ -139,6 +151,8 @@ public class Enemy : MonoBehaviour {
 		{
 			Destroy(gameObject);
 		}
+
+		t.text = "";
     }
 
 	private void LookAtPlayer()
