@@ -4,7 +4,6 @@ public class BulletController : MonoBehaviour
 {
 
 
-    public static int counterShootEnemy = 0;
 
     void Start()
     {
@@ -17,7 +16,6 @@ public class BulletController : MonoBehaviour
 		{
 			if (gameObject != null){
                 Destroy(gameObject);
-                counterShootEnemy++;
             }
 		}
 	}

@@ -14,7 +14,7 @@ public class EnemyManager : MonoBehaviour
 
     private float range = 10;
 
-   
+    public static int numberOfKilledEnemies;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,7 @@ public class EnemyManager : MonoBehaviour
     }
 
     void OnEnable()
-    {
+    {   
         Enemy.OnEnemyKilled += SpawnNewEnemy;
     }
 
@@ -53,11 +53,12 @@ public class EnemyManager : MonoBehaviour
             }
             break;
         }
+        numberOfKilledEnemies = -numberOfEnemies;
     }
 
 
     void SpawnNewEnemy() {
-
+        numberOfKilledEnemies++;
         if (useSpawnPoints)
         {
             
@@ -77,12 +78,10 @@ public class EnemyManager : MonoBehaviour
             
             Instantiate(enemyPrefab, randomSpawnPosition, Quaternion.identity);
         }
-
-       
-       
-        
-
-
     }
+
+    public static void Clear(){
+		numberOfKilledEnemies = 0;
+	}
 
 }
