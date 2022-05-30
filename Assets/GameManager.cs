@@ -7,11 +7,16 @@ using System.Collections.Generic;
 using System.Globalization;
 using System;
 
+
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
     private bool isGameEnded = false;
     //public float restartDelay = 1f;
     public static int levelGame = 0;
+    public static string enemyText;
+    public static string scoreText;
+    public static string timeText;
 
     public enum Level {
         Easy,
@@ -19,29 +24,31 @@ public class GameManager : MonoBehaviour
         Hard
     }
 
-    public TextMeshProUGUI score;
-    public TextMeshProUGUI enemy;
-    public TextMeshProUGUI time;
-    public TextMeshProUGUI gameOver;
     public static DateTime startGameUtcDate;
     public DateTime endGameUtcDate;
+
+    void Start()
+    {
+      startGameUtcDate = DateTime.UtcNow;
+    }
+
+    void Awake() 
+    {
+      instance = this;
+    }
 
   public void EndGame()
   {
       if (!isGameEnded)
       {
-          Debug.Log("Collect items: " + ThirdPersonMovement.numberOfCollectItems.ToString());
-          //score.text = ThirdPersonMovement.numberOfCollectItems.ToString();
-          Debug.Log("Number of enemies shot: " + BulletController.counterShootEnemy.ToString());
-          // enemy.text = BulletController.counterShootEnemy.ToString();
+          scoreText = ThirdPersonMovement.numberOfCollectItems.ToString();
+          enemyText = EnemyManager.numberOfKilledEnemies.ToString();
+         
           isGameEnded = true;
           endGameUtcDate = DateTime.UtcNow;
-          Debug.Log("Game over: " + endGameUtcDate);
           var diffDate = (endGameUtcDate - startGameUtcDate);
-          Debug.Log("Game last: " + diffDate.Minutes + ":" + diffDate.Seconds + ":" + diffDate.Milliseconds);
-          // time.text = "diffDate.Minutes" + ":" + diffDate.Seconds + ":" + diffDate.Milliseconds;
-          gameOver.text = "Game Over";
-        //  SceneManager.LoadScene("GameOverMenu");
+          timeText = diffDate.Seconds + ":" + diffDate.Milliseconds;
+          
           Restart();
       }
       
@@ -49,9 +56,10 @@ public class GameManager : MonoBehaviour
 
   private void Restart()
   {
-      SceneManager.LoadScene("GameOverMenu");
       ThirdPersonMovement.Clear();
       Enemy.Clear();
+      EnemyManager.Clear();
+      SceneManager.LoadScene("GameOverMenu");
   }
 
   public static Level GetLevel(){
