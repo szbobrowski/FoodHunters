@@ -31,7 +31,6 @@ public class Enemy : MonoBehaviour {
 	void Update ()
 	{
 		UpdateParameters();
-		Debug.Log(speed);
 		switch (state)
 		{
 			case State.Alive:
@@ -81,7 +80,7 @@ public class Enemy : MonoBehaviour {
         switch(GameManager.GetLevel()){
             case GameManager.Level.Easy:
             {
-                chasingRange = 5f;
+                chasingRange = 7f;
 				speed = 2f;
 				hp = 1;
             }
@@ -109,7 +108,7 @@ public class Enemy : MonoBehaviour {
         switch(GameManager.GetLevel()){
             case GameManager.Level.Easy:
             {
-                chasingRange = multiplayer * 5f;
+                chasingRange = multiplayer * 7f;
 				speed = multiplayer * 2f;
             }
             break;

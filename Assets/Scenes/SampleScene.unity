@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -413,7 +413,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2259507, y: 1}
+    m_SensorSize: {x: 1.3603604, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -429,7 +429,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187480990}
-  m_LocalRotation: {x: -0.0019242942, y: 0.9845071, z: -0.17500007, w: -0.010825603}
+  m_LocalRotation: {x: -0.0019242911, y: 0.9845071, z: -0.17500007, w: -0.0108255865}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -475,8 +475,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.63, y: 5.38, z: 1.36}
-  m_Center: {x: 0, y: 3.27, z: 0}
+  m_Size: {x: 0.60362136, y: 3.8394222, z: 0.7963154}
+  m_Center: {x: 0.11985484, y: 2.5016713, z: 0.014021839}
 --- !u!114 &213935404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -618,6 +618,7 @@ GameObject:
   - component: {fileID: 298921273}
   - component: {fileID: 298921272}
   - component: {fileID: 298921276}
+  - component: {fileID: 298921277}
   m_Layer: 0
   m_Name: Board
   m_TagString: Untagged
@@ -634,7 +635,7 @@ MeshCollider:
   m_GameObject: {fileID: 298921271}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -724,6 +725,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &298921277
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298921271}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &409143006
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,13 +768,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSpawnPoints: 0
-  numberOfEnemies: 3
   spawnPoints:
   - {fileID: 1590973792}
   - {fileID: 2115019802}
   - {fileID: 448078321}
   - {fileID: 1797216615}
-  enemyPrefab: {fileID: 6781192098868816565, guid: 7e450ed214f4e85488146ef903140f01, type: 3}
+  enemyPrefab: {fileID: 1638298455867416345, guid: 878992365ee6d9741ba2db78685e211c, type: 3}
 --- !u!4 &409143008
 Transform:
   m_ObjectHideFlags: 0
@@ -858,7 +871,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2259507, y: 1}
+    m_SensorSize: {x: 1.3603604, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1097,7 +1110,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2259507, y: 1}
+    m_SensorSize: {x: 1.3603604, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1113,7 +1126,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800931310}
-  m_LocalRotation: {x: -0.0015297856, y: 0.9902141, z: -0.13912241, w: -0.010888361}
+  m_LocalRotation: {x: -0.0015297831, y: 0.9902141, z: -0.13912241, w: -0.010888344}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1423,7 +1436,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0.0014255147, y: 0.9875464, z: -0.15706646, w: -0.008962843}
+  m_LocalRotation: {x: -0.0014255091, y: 0.9875464, z: -0.15706646, w: -0.008962807}
   m_LocalPosition: {x: -8.922794, y: 52.3, z: 130.36775}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1769,7 +1782,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c27d01c9d005604e9e4883c6ae536cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restartDelay: 1
+  score: {fileID: 0}
+  enemy: {fileID: 0}
+  time: {fileID: 0}
   gameOver: {fileID: 1553802557}
 --- !u!4 &1445252068
 Transform:
@@ -1974,7 +1989,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2259507, y: 1}
+    m_SensorSize: {x: 1.3603604, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1990,7 +2005,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566535150}
-  m_LocalRotation: {x: -0.0017270652, y: 0.9875273, z: -0.15706344, w: -0.010858823}
+  m_LocalRotation: {x: -0.0017270597, y: 0.9875273, z: -0.15706344, w: -0.010858789}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2614,6 +2629,22 @@ PrefabInstance:
     - target: {fileID: -7308941246413180119, guid: 2c4b07ee653873647bbf79c51d376539, type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: -2049929814205202405, guid: 2c4b07ee653873647bbf79c51d376539, type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2049929814205202405, guid: 2c4b07ee653873647bbf79c51d376539, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2049929814205202405, guid: 2c4b07ee653873647bbf79c51d376539, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.006
+      objectReference: {fileID: 0}
+    - target: {fileID: -2049929814205202405, guid: 2c4b07ee653873647bbf79c51d376539, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.006440277
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2c4b07ee653873647bbf79c51d376539, type: 3}
       propertyPath: m_Name

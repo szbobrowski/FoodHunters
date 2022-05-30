@@ -69,10 +69,10 @@ public class EnemyManager : MonoBehaviour
         else 
         {
             Transform playerTransform = GameObject.Find("Third Person Player").transform;
-            Vector3 randomSpawnPosition = new Vector3(Random.Range(-20,20), 48f, Random.Range(80,120));
+            Vector3 randomSpawnPosition = new Vector3(Random.Range(-20,20), 43.9f, Random.Range(80,120));
             while(Vector3.Distance(randomSpawnPosition, playerTransform.position) < range)
             {
-               randomSpawnPosition = new Vector3(Random.Range(-20,20), 48f, Random.Range(80,120));
+               randomSpawnPosition = new Vector3(Random.Range(-20,20), 43.9f, Random.Range(80,120));
             }
             
             Instantiate(enemyPrefab, randomSpawnPosition, Quaternion.identity);
