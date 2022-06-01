@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour {
 
 	GameObject text;
 	TextMesh t;
+	private Animator animator;
+    
 
     enum State {
 	    Alive,
@@ -27,6 +29,7 @@ public class Enemy : MonoBehaviour {
    
 
 	void Start () {
+		animator = GetComponent<Animator>();
 		SetupParameters();
 	    player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody>();
@@ -49,6 +52,7 @@ public class Enemy : MonoBehaviour {
 				}
 				break;
 			case State.Chasing:
+				animator.SetBool("isWalking", true);
 				LookAtPlayer();
                 rb.isKinematic = false;
 				rb.velocity = transform.forward * speed;
@@ -90,7 +94,6 @@ public class Enemy : MonoBehaviour {
 
 	private void SetupParameters()
     {
-
 		multiplayerDivider = 40f;
 
         switch(GameManager.GetLevel()){
@@ -119,6 +122,7 @@ public class Enemy : MonoBehaviour {
     }
 	private void UpdateParameters()
     {
+		//bool isWalking = animator.GetBool(isWalkingHash);
 		float multiplayer = (GetNumberOfCollectedItems() + multiplayerDivider) / multiplayerDivider;
 
         switch(GameManager.GetLevel()){
