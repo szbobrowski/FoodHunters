@@ -85,13 +85,6 @@ public class Enemy : MonoBehaviour {
 			}
 
 			FindObjectOfType<AudioManager>().Play("zombieDead");
-
-			System.Random rd = new System.Random();
-			int rand_num = rd.Next(1,3);
-
-			if (rand_num == 1) {
-				FindObjectOfType<AudioManager>().Play("fart");
-			}
 		}
 	}
 

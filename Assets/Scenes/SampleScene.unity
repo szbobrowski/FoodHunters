@@ -431,7 +431,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187480990}
-  m_LocalRotation: {x: -0.0019242911, y: 0.9845071, z: -0.17500007, w: -0.0108255865}
+  m_LocalRotation: {x: -0.0019242942, y: 0.9845071, z: -0.17500007, w: -0.010825603}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -605,7 +605,7 @@ MonoBehaviour:
   moveForce: 1000
   bullet: {fileID: 2773275417302209551, guid: 788f7ed789941ce4fafb12bb72d3ab60, type: 3}
   gun: {fileID: 237598734}
-  shootRate: 0.01
+  shootRate: 1
   shootForce: 1000
   reloadText: {fileID: 970847799}
   timeToNextShot: 1
@@ -2446,11 +2446,6 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: zombieDead
     clip: {fileID: 8300000, guid: 7c3d5c301846b15489f0443fae0b3704, type: 3}
-    volume: 0.778
-    pitch: 1
-    source: {fileID: 0}
-  - name: fart
-    clip: {fileID: 8300000, guid: be9e5ec9db7cea44b8d7dc4eb813b396, type: 3}
     volume: 0.778
     pitch: 1
     source: {fileID: 0}
