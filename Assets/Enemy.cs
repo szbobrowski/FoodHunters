@@ -153,6 +153,8 @@ public class Enemy : MonoBehaviour {
 		}
 
 		t.text = "";
+
+		FindObjectOfType<AudioManager>().Play("zombieDead");
     }
 
 	private void LookAtPlayer()
