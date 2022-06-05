@@ -68,7 +68,9 @@ public class Enemy : MonoBehaviour {
 
 	public void UpdateText() {
 		t.text = "HP: " + hp;
-		t.transform.localPosition = transform.position + new Vector3(0, 5f, 0);
+		t.transform.localPosition = transform.position + new Vector3(0, 6f, 0);
+		t.transform.localEulerAngles = transform.eulerAngles;
+		t.transform.Rotate(0, 180, 0);
 	}
 
 	private void OnCollisionEnter(Collision collision)
@@ -81,6 +83,8 @@ public class Enemy : MonoBehaviour {
 				state = State.Dead;
             	die();
 			}
+
+			FindObjectOfType<AudioManager>().Play("zombieDead");
 		}
 	}
 
