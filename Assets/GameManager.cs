@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     private bool isGameEnded = false;
-    //public float restartDelay = 1f;
     public static int levelGame = 0;
     public static string enemyText;
     public static string scoreText;
@@ -56,6 +55,7 @@ public class GameManager : MonoBehaviour
 
   private void Restart()
   {
+      levelGame = 0;
       ThirdPersonMovement.Clear();
       Enemy.Clear();
       EnemyManager.Clear();
