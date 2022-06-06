@@ -86,7 +86,13 @@ public class Enemy : MonoBehaviour {
 			{
 				state = State.Dead;
             	die();
+			} 
+			else 
+			{
+				rb.isKinematic = true;
+				rb.isKinematic = false;
 			}
+	
 
 			FindObjectOfType<AudioManager>().Play("zombieDead");
 		}
@@ -101,14 +107,14 @@ public class Enemy : MonoBehaviour {
             {
                 chasingRange = 7f;
 				speed = 2f;
-				hp = 1;
+				hp = 2;
             }
             break;
             case GameManager.Level.Medium: 
             {
                 chasingRange = 10f;
 				speed = 2.5f;
-				hp = 2;
+				hp = 3;
             }
             break;
             case GameManager.Level.Hard: 
