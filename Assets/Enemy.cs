@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour {
 
 	GameObject text;
 	TextMesh t;
+	private Animator animator;
+    
 
     enum State {
 	    Alive,
@@ -27,6 +29,7 @@ public class Enemy : MonoBehaviour {
    
 
 	void Start () {
+		animator = GetComponent<Animator>();
 		SetupParameters();
 	    player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody>();
@@ -49,6 +52,7 @@ public class Enemy : MonoBehaviour {
 				}
 				break;
 			case State.Chasing:
+				animator.SetBool("isWalking", true);
 				LookAtPlayer();
                 rb.isKinematic = false;
 				rb.velocity = transform.forward * speed;
@@ -68,7 +72,9 @@ public class Enemy : MonoBehaviour {
 
 	public void UpdateText() {
 		t.text = "HP: " + hp;
-		t.transform.localPosition = transform.position + new Vector3(0, 5f, 0);
+		t.transform.localPosition = transform.position + new Vector3(0, 6f, 0);
+		t.transform.localEulerAngles = transform.eulerAngles;
+		t.transform.Rotate(0, 180, 0);
 	}
 
 	private void OnCollisionEnter(Collision collision)
@@ -81,12 +87,13 @@ public class Enemy : MonoBehaviour {
 				state = State.Dead;
             	die();
 			}
+
+			FindObjectOfType<AudioManager>().Play("zombieDead");
 		}
 	}
 
 	private void SetupParameters()
     {
-
 		multiplayerDivider = 40f;
 
         switch(GameManager.GetLevel()){
@@ -115,6 +122,7 @@ public class Enemy : MonoBehaviour {
     }
 	private void UpdateParameters()
     {
+		//bool isWalking = animator.GetBool(isWalkingHash);
 		float multiplayer = (GetNumberOfCollectedItems() + multiplayerDivider) / multiplayerDivider;
 
         switch(GameManager.GetLevel()){

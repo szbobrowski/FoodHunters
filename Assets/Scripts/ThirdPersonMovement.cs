@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -58,6 +59,7 @@ public class ThirdPersonMovement : MonoBehaviour
 		if (collision.gameObject.tag == "Enemy")
 		{
             playerHP -= 1;
+            FindObjectOfType<AudioManager>().Play("zombieBite");
 		}
 
         if (playerHP <= 0) 
