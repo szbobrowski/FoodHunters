@@ -13,12 +13,17 @@ public class ThirdPersonMovement : MonoBehaviour
     public float speed = 6f;
     public int playerHP = 4;
 
+    public float collisionCheckInterval = 1.5f;
+
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
 
     public static int numberOfCollectItems = 0;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI playerHP_text;
+
+    private bool isColided = false;
+    private float elapsedTime = 0f;
 
     //BOUND
     // private void Start()
@@ -30,6 +35,11 @@ public class ThirdPersonMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        elapsedTime += Time.deltaTime;
+        if (elapsedTime >= collisionCheckInterval) {
+            elapsedTime = 0;
+            OnCollisionWithEnemy();
+        }
         float horizontal = Input.GetAxisRaw("Horizontal") * -1;
         float vertical = Input.GetAxisRaw("Vertical") * -1;
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
@@ -58,15 +68,32 @@ public class ThirdPersonMovement : MonoBehaviour
 	{
 		if (collision.gameObject.tag == "Enemy")
 		{
-            playerHP -= 1;
-            FindObjectOfType<AudioManager>().Play("zombieBite");
+            isColided = true;
+            OnCollisionWithEnemy();
 		}
+	}
+
+    private void OnCollisionExit(Collision collision) {
+		if (collision.gameObject.tag == "Enemy")
+		{
+			isColided = false;
+		}
+	}
+    
+    private void OnCollisionWithEnemy()
+    {
+        if (isColided)
+        {
+            playerHP--;
+            elapsedTime = 0;
+            FindObjectOfType<AudioManager>().Play("zombieBite");
+        }
 
         if (playerHP <= 0) 
         {
             die();
         }
-	}
+    }
 
     private void die()
     {

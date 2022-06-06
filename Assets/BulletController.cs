@@ -12,7 +12,7 @@ public class BulletController : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
 	{
-		if (collision.gameObject.tag == "Enemy")
+		if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Wall")
 		{
 			if (gameObject != null){
                 Destroy(gameObject);
