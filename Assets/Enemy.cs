@@ -89,12 +89,19 @@ public class Enemy : MonoBehaviour {
 			} 
 			else 
 			{
+				state = State.Chasing;
 				rb.isKinematic = true;
 				rb.isKinematic = false;
 			}
 	
 
 			FindObjectOfType<AudioManager>().Play("zombieDead");
+		}
+
+		if (collision.gameObject.tag == "Player")
+		{
+			rb.isKinematic = true;
+			rb.isKinematic = false;
 		}
 	}
 
@@ -168,6 +175,10 @@ public class Enemy : MonoBehaviour {
 
 		t.text = "";
     }
+
+	private void OnDestroy() {
+		ThirdPersonMovement.isColided = false;
+	}
 
 	private void LookAtPlayer()
 	{

@@ -22,7 +22,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI playerHP_text;
 
-    private bool isColided = false;
+    public static bool isColided = false;
     private float elapsedTime = 0f;
 
     //BOUND
