@@ -33,6 +33,19 @@ public class ShootingController : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown("q"))
+        {
+            if (bullet.GetComponent<Rigidbody>().useGravity) 
+            {
+                bullet.GetComponent<Rigidbody>().useGravity = false;
+            } 
+            else
+            {
+                bullet.GetComponent<Rigidbody>().useGravity = true;
+            }
+            
+        }
+
         UpdateReloadText();
     }
 

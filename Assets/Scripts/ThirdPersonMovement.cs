@@ -13,7 +13,10 @@ public class ThirdPersonMovement : MonoBehaviour
     public float speed = 6f;
     public int playerHP = 4;
 
-    public float collisionCheckInterval = 1.5f;
+    private float collisionCheckInterval = 1.5f;
+    private float immortalTimeInterval = 1f;
+    private float immortalTime = 0f;
+    private bool isImmortal = false;
 
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
@@ -22,7 +25,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI playerHP_text;
 
-    private bool isColided = false;
+    public static bool isColided = false;
     private float elapsedTime = 0f;
 
     //BOUND
@@ -35,6 +38,18 @@ public class ThirdPersonMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        if (isImmortal)
+        {
+            immortalTime += Time.deltaTime;
+            if (immortalTime >= immortalTimeInterval)
+            {
+                isImmortal = false;
+                immortalTime = 0f;
+            }
+        }
+        Debug.Log(isImmortal);
+
         elapsedTime += Time.deltaTime;
         if (elapsedTime >= collisionCheckInterval) {
             elapsedTime = 0;
@@ -82,9 +97,10 @@ public class ThirdPersonMovement : MonoBehaviour
     
     private void OnCollisionWithEnemy()
     {
-        if (isColided)
+        if (isColided && !isImmortal)
         {
             playerHP--;
+            isImmortal = true;
             elapsedTime = 0;
             FindObjectOfType<AudioManager>().Play("zombieBite");
         }

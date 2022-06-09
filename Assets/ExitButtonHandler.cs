@@ -6,6 +6,7 @@ public class ExitButtonHandler : MonoBehaviour
 {
     public void ExitButton() 
     {
+        FindObjectOfType<AudioManager>().Play("buttonClick");
         Application.Quit();
         Debug.Log("Game closed");
     }
