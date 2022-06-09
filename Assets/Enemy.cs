@@ -72,7 +72,7 @@ public class Enemy : MonoBehaviour {
 
 	public void UpdateText() {
 		t.text = "HP: " + hp;
-		t.transform.localPosition = transform.position + new Vector3(0, 6f, 0);
+		t.transform.localPosition = transform.position + new Vector3(1f, 6f, 0f);
 		t.transform.localEulerAngles = transform.eulerAngles;
 		t.transform.Rotate(0, 180, 0);
 	}

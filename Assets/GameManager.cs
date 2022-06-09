@@ -78,7 +78,8 @@ public class GameManager : MonoBehaviour
 
 
   public void ExitButton() 
-  {
+  {   
+      FindObjectOfType<AudioManager>().Play("buttonClick");
       Application.Quit();
       Debug.Log("Game closed");
   }
@@ -92,11 +93,13 @@ public class GameManager : MonoBehaviour
 
     public void MenuButton()
   {
+      FindObjectOfType<AudioManager>().Play("buttonClick");
       SceneManager.LoadScene("MainMenu");
   }
 
   public void HandleInputLevel(int optionNumber)
   {
+      FindObjectOfType<AudioManager>().Play("buttonClick");
       if(optionNumber == 0)
       {
           levelGame = 0;
@@ -109,7 +112,6 @@ public class GameManager : MonoBehaviour
       {
           levelGame = 2;
       }
-
       Debug.Log("Set level: " + levelGame);
   }
 

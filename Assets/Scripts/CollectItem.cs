@@ -28,6 +28,7 @@ public class CollectItem : MonoBehaviour
     {
         if(collider.gameObject.tag == "Player")
         {
+            FindObjectOfType<AudioManager>().Play("collectItem");
             ThirdPersonMovement.numberOfCollectItems += 1;
             Debug.Log("Item was picked up");
             Debug.Log("Score: " + ThirdPersonMovement.numberOfCollectItems);
