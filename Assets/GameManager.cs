@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
           isGameEnded = true;
           endGameUtcDate = DateTime.UtcNow;
           var diffDate = (endGameUtcDate - startGameUtcDate);
-          timeText = diffDate.Seconds + ":" + diffDate.Milliseconds;
+          timeText = diffDate.Minutes + ":" + diffDate.Seconds + ":" + diffDate.Milliseconds;
           
           Restart();
       }

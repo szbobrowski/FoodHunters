@@ -48,7 +48,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 immortalTime = 0f;
             }
         }
-        Debug.Log(isImmortal);
+       // Debug.Log(isImmortal);
 
         elapsedTime += Time.deltaTime;
         if (elapsedTime >= collisionCheckInterval) {
